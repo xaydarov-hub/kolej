@@ -7,8 +7,7 @@ export const SITE_DESCRIPTION =
 
 // Contact info
 export const CONTACT_INFO = {
-  phone: "+998 73 544 00 00",
-  phone2: "+998 73 544 00 01",
+  phone: "+998 99 300 74 76",
   email: "info@texnikum2.uz",
   address: "O'zbekiston, Qo'qon shahar, Yengi Hayot ko'chasi, 45",
   workingHours: {
