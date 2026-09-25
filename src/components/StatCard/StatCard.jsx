@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { motion, useInView, useMotionValue, useSpring, animate } from 'framer-motion';
-import * as Icons from 'lucide-react';
+import { Users, UserCheck, BookOpen, Award, TrendingUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import './StatCard.css';
+
+const STAT_ICONS = { Users, UserCheck, BookOpen, Award };
 
 const AnimatedNumber = ({ value }) => {
   const ref = useRef(null);
@@ -30,7 +32,7 @@ const AnimatedNumber = ({ value }) => {
 const StatCard = ({ stat, index = 0 }) => {
   const { t } = useTranslation();
   const IconComponent =
-    stat.icon && Icons[stat.icon] ? Icons[stat.icon] : Icons.TrendingUp;
+    stat.icon && STAT_ICONS[stat.icon] ? STAT_ICONS[stat.icon] : TrendingUp;
 
   return (
     <motion.div

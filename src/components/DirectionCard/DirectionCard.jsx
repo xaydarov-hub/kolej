@@ -1,17 +1,23 @@
 import { Link } from 'react-router-dom';
-import { Clock, Award, ChevronRight } from 'lucide-react';
+import {
+  Clock, Award, ChevronRight, BookOpen,
+  ShieldCheck, Monitor, Truck, Scissors, Shirt, Palette, Settings, Gem, Code2, Drone,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import * as Icons from 'lucide-react';
 import './DirectionCard.css';
+
+const DIRECTION_ICONS = {
+  ShieldCheck, Monitor, Truck, Scissors, Shirt, Palette, Settings, Gem, Code2, Drone, BookOpen,
+};
 
 const DirectionCard = ({ direction, index = 0 }) => {
   const { t } = useTranslation();
 
   const IconComponent =
-    direction.icon && Icons[direction.icon]
-      ? Icons[direction.icon]
-      : Icons.BookOpen;
+    direction.icon && DIRECTION_ICONS[direction.icon]
+      ? DIRECTION_ICONS[direction.icon]
+      : BookOpen;
 
   return (
     <motion.article
