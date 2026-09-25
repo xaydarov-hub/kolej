@@ -1,0 +1,122 @@
+/* === RESPONSIVE BREAKPOINTS ===
+  xs:  320px
+  sm:  480px
+  md:  768px
+  lg:  1024px
+  xl:  1280px
+  2xl: 1440px
+  3xl: 1920px
+*/
+
+/* === CONTAINER RESPONSIVE === */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 16px;
+    --header-height: 70px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .section-lg {
+    padding: var(--space-16) 0;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 12px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  .section {
+    padding: var(--space-10) 0;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --container-padding: 12px;
+  }
+
+  h1 { font-size: 1.625rem; }
+  h2 { font-size: 1.375rem; }
+}
+
+@media (max-width: 320px) {
+  :root {
+    --container-padding: 10px;
+  }
+
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.125rem; }
+}
+
+/* === LARGE SCREENS === */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1380px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* === MOBILE HIDDEN / VISIBLE === */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* === NO OVERFLOW === */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

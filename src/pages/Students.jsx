@@ -1,0 +1,5 @@
+import { BookOpen, Trophy, Users, Wrench } from 'lucide-react';
+import PageFrame from '../components/PageFrame';
+import '../styles/site.css';
+const items=[['Amaliy mashg‘ulotlar','Nazariy bilimni ustaxona va laboratoriyalarda mustahkamlang.',Wrench],['To‘garaklar','Qiziqishlaringizni rivojlantiradigan ijodiy va texnik klublar.',Users],['Yutuqlar','Tanlovlar, olimpiadalar va loyihalarda o‘z kuchingizni sinang.',Trophy],['O‘quvchi hayoti','Hamjihat jamoa, tadbirlar va yangi do‘stlar bilan boy hayot.',BookOpen]];
+export default function Students(){return <PageFrame eyebrow="O‘quvchilar" title="O‘qishdan ko‘ra kattaroq tajriba" intro="Texnikumdagi har bir kun yangi ko‘nikma, hamkorlik va imkoniyatlarga boy."><div className="student-grid">{items.map(([title,desc,Icon])=><article className="info-card" key={title}><Icon size={25}/><h2>{title}</h2><p>{desc}</p></article>)}</div><div className="quote-panel"><p>“Biz o‘quvchilarni faqat kasbga emas, mustaqil fikrlash va mas’uliyatli hayotga tayyorlaymiz.”</p><span>Texnikum jamoasi</span></div></PageFrame>}

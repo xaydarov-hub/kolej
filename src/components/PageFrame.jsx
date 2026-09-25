@@ -1,0 +1,2 @@
+import { motion } from 'framer-motion';
+export default function PageFrame({ eyebrow, title, intro, children, dark = false }) { return <div className={`page-frame ${dark ? 'page-frame--dark' : ''}`}><div className="container"><motion.div className="page-frame__heading" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}><span className="eyebrow">{eyebrow}</span><h1>{title}</h1>{intro && <p>{intro}</p>}</motion.div>{children}</div></div>; }

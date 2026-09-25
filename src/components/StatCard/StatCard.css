@@ -1,0 +1,75 @@
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+}
+
+.stat-card__icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(212, 167, 44, 0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.stat-card__value {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-extrabold);
+  color: var(--text-white);
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  line-height: 1;
+}
+
+.stat-card__suffix {
+  font-size: var(--text-3xl);
+  color: var(--accent);
+  font-weight: var(--font-bold);
+}
+
+.stat-card__label {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: var(--font-medium);
+}
+
+/* On light background variant */
+.stat-card--light {
+  background-color: var(--background);
+  border-color: var(--border);
+}
+
+.stat-card--light .stat-card__value {
+  color: var(--text);
+}
+
+.stat-card--light .stat-card__label {
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .stat-card {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .stat-card__value {
+    font-size: var(--text-4xl);
+  }
+}

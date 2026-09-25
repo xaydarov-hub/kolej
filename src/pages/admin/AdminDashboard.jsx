@@ -1,0 +1,7 @@
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, FileText, Images, Newspaper, GraduationCap } from 'lucide-react';
+import { DIRECTIONS_DATA } from '../../data/constants';
+import { getAllNews, getGallery, getAdmissions } from '../../firebase/firestore';
+import { useEffect, useState } from 'react';
+import '../../styles/site.css';
+export default function AdminDashboard(){const [counts,setCounts]=useState({news:'—',gallery:'—',applications:'—'});useEffect(()=>{Promise.all([getAllNews(),getGallery(),getAdmissions()]).then(([news,gallery,applications])=>setCounts({news:news.length,gallery:gallery.length,applications:applications.length}));},[]);const cards=[['Jami yangiliklar',counts.news,Newspaper,'/admin/news'],['Ta’lim yo‘nalishlari',DIRECTIONS_DATA.length,GraduationCap,'/admin/directions'],['Galereya rasmlari',counts.gallery,Images,'/admin/gallery'],['Arizalar',counts.applications,FileText,'/admin']];return <div className="admin-page"><div className="admin-heading"><div><span className="eyebrow">Umumiy ko‘rinish</span><h1>Dashboard</h1></div><span className="admin-date">20 avgust 2026</span></div><div className="admin-stat-grid">{cards.map(([label,value,Icon,to])=><Link className="admin-stat" to={to} key={label}><Icon size={21}/><span>{label}</span><strong>{value}</strong><ArrowUpRight size={16}/></Link>)}</div><div className="admin-welcome"><span className="eyebrow">Bugungi fokus</span><h2>Texnikumning raqamli qiyofasini boshqaring.</h2><p>Yangiliklar, ta’lim yo‘nalishlari va galereyani bir joydan yangilang.</p></div></div>}

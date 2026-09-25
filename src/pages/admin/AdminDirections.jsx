@@ -1,0 +1,6 @@
+import { useState } from 'react';
+import { DIRECTIONS_DATA } from '../../data/constants';
+import { createDirection, deleteDirection } from '../../firebase/firestore';
+import Button from '../../components/Button/Button';
+import '../../styles/site.css';
+export default function AdminDirections(){const [items,setItems]=useState(DIRECTIONS_DATA);const [name,setName]=useState('');const add=async(e)=>{e.preventDefault();if(!name.trim())return;const data={name,description:'Yangi ta’lim yo‘nalishi',duration:'3 yil',qualification:'Texnik',icon:'BookOpen'};const r=await createDirection(data);if(!r.error)setItems([...items,{...data,id:r.id}]);setName('');};return <div className="admin-page"><span className="eyebrow">Kontent</span><h1>Ta’lim yo‘nalishlari</h1><div className="admin-editor"><form className="form-card" onSubmit={add}><h2>Yo‘nalish qo‘shish</h2><label>Nomi<input value={name} onChange={(e)=>setName(e.target.value)} required /></label><Button type="submit">Qo‘shish</Button></form><div className="admin-list">{items.map((item)=><div className="admin-list__item" key={item.id}><b>{item.name}</b><button onClick={async()=>{await deleteDirection(item.id);setItems(items.filter((x)=>x.id!==item.id))}} aria-label="O‘chirish">O‘chirish</button></div>)}</div></div></div>}
